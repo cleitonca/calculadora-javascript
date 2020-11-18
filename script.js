@@ -2,6 +2,7 @@
 var displayBuffer = "";
 var numero = "";
 var termos = [undefined,undefined,undefined];
+var resultado = undefined;
 
 function pressNum(num) {
     numero = numero.concat(num.innerHTML);
@@ -9,30 +10,40 @@ function pressNum(num) {
 }
 
 function pressOperation(op){
-    termos[0]=numero;
-    termos[1]=op.innerHTML;
-    showDisplay(op.innerHTML);
-    numero="";
+    if(termos[1]==undefined){
+        termos[0]=numero;
+        termos[1]=op.innerHTML;
+        showDisplay(op.innerHTML);
+        numero="";
+    }    
 }
 
 function pressEquals(){
-    termos[2] = numero;
-    switch(termos[1]){
-        case '+': 
-            resultado = Number(termos[0])+Number(termos[2]);
-            break;
-        case '-': 
-            resultado = Number(termos[0])-Number(termos[2]);
-            break;
-        case '*': 
-            resultado = Number(termos[0])*Number(termos[2]);
-            break;
-        case '/': 
-            resultado = Number(termos[0])/Number(termos[2]);
-            break;
+    if(termos[0] != undefined && termos[1] != undefined && numero != "")
+    {
+        termos[2] = numero;
+        var keepresultado;
+        switch(termos[1]){
+            case '+': 
+                resultado = Number(termos[0])+Number(termos[2]);
+                break;
+            case '-': 
+                resultado = Number(termos[0])-Number(termos[2]);
+                break;
+            case '*': 
+                resultado = Number(termos[0])*Number(termos[2]);
+                break;
+            case '/': 
+                resultado = Number(termos[0])/Number(termos[2]);
+                break;
+        }
+        keepresultado = resultado;
+        clearDisplay();
+        showDisplay(resultado);
+        clearMemory();
+        numero = keepresultado.toString();
     }
-    clearDisplay();
-    showDisplay(resultado);
+    
 }
 
 function showDisplay(conteudo){
@@ -43,6 +54,8 @@ function showDisplay(conteudo){
 
 function clearMemory() {
     numero = "";
+    termos = [undefined,undefined,undefined];
+    resultado = undefined;
 }
 
 function clearDisplay(){
