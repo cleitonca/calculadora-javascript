@@ -16,32 +16,30 @@
                 <button onclick="pressNum(this)">1</button>
                 <button onclick="pressNum(this)">2</button>
                 <button onclick="pressNum(this)">3</button>
-                <button >+</button>
+                <button onclick="pressOperation(this)">+</button>
             </div>
             <div>
                 <button onclick="pressNum(this)">4</button>
                 <button onclick="pressNum(this)">5</button>
                 <button onclick="pressNum(this)">6</button>
-                <button >-</button>
+                <button onclick="pressOperation(this)">-</button>
             </div>
             <div>
                 <button onclick="pressNum(this)">7</button>
                 <button onclick="pressNum(this)">8</button>
                 <button onclick="pressNum(this)">9</button>
-                <button >*</button>
+                <button onclick="pressOperation(this)">*</button>
             </div>
             <div>
                 <button onclick="pressNum(this)">0</button>
-                <button >.</button>
-                <button id="limpatela" onclick="clearMemory()">C</button>
-                <button >/</button>
+                <button onclick="pressOperation(this)">.</button>
+                <button id="limpatela" onclick="clearAll()">C</button>
+                <button onclick="pressOperation(this)">/</button>
             </div>  
             <div>
-                <button id="igualdade">=</button>
+                <button id="igualdade" onclick="pressEquals()">=</button>
             </div>      
-
     </div>
-    
     
     <script src="script.js"></script>
 
